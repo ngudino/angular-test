@@ -58,52 +58,47 @@
     <div class="login">
 
       <div>
-
           <div>
           <div id="div1"></div> <label class="title">Bienvenido</label>
           </div>
+      </div>
+      <div style="display:flex; align-self: right; flex-direction: column; justify-content: space-around; justify-content: space-between">
 
-       </div>
-
-       <form [formGroup]="loginform">
-            <div style="display:flex; align-self: right; flex-direction: column; justify-content: space-around; justify-content: space-between">
-              <div class="contenedor-input">
-                <input formControlName="email" placeholder="EMAIL" class="input" type="text">
-               </div>
-               <div
-                 *ngIf="
-                loginform.controls['email'].invalid &&
-                (loginform.controls['email'].dirty || loginform.controls['email'].touched)"class="alert alert-danger">
-                <div *ngIf="loginform.controls['email'].errors.required">
-                  Email es requerido
-                </div>
-              </div>
-
-              <div class ="contenedor-input">
-                <input formControlName="password" placeholder="CONTRASEÑA" type="password" class="input" ngModel=user.contrasenia required>
-               </div>
-
-
-
-
-
-
-               <div class="contenedor-input" style="align-items:flex-end;">
-                 <a id="forgot" href="routerlink /e404">¿Olvidaste tu contraseña?</a>
-               </div>
-              <div style="vertical-align: auto; align-items: center;">
-               <!-- <input id="boton-text" onclick="checkUser($e)" type="button" class="btn" value="INICIAR SESIÓN"> -->
-               <button type="submit" class="btn" ><span id="boton-text">INICIAR SESIÓN</span></button>
-              </div>
-              <div class="contenedor-input" style="align-items:flex-end;">
-              <label id="registrar" for="registrar">AUN NO TENGO CUENTA</label> <a id="reg" href="routerlink /e404">REGISTRARSE</a>
+          <form [formGroup]="loginform">
+            <div class="contenedor-input">
+              <input placeholder="EMAIL" class="input" type="text">
              </div>
+             <div class ="contenedor-input">
+              <input placeholder="CONTRASEÑA" type="password" class="input">
+             </div>
+             <div
+             *ngIf="
+               loginform.controls['email'].invalid &&
+               (loginform.controls['password'].dirty || loginform.controls['email'].touched)
+             "
+             class="alert alert-danger"
+           >
+             <div *ngIf="loginform.controls['password'].errors.required">
+               Contraseña es Requerida
+             </div>
+           </div>
+           <div style="vertical-align: auto; align-items: center;">
+            <input id="boton-text" type="submit" onclick="login()" class="btn" value="INICIAR SESIÓN">
+            <!-- <button class="btn" (ngSubmit)="login()"  style="vertical-align:middle"><span id="boton-text">INICIAR SESION</span></button> -->
+           </div>
 
-            </div>
-           </form>
+          </form>
+      </div>
+
 
   </div>
   </section>
+
+
+
+
+
+
 </div>
 
 

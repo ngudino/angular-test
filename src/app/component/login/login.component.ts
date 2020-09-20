@@ -1,6 +1,7 @@
 import { validarInput } from './app.validator';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,12 +11,13 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
   loginform: FormGroup;
+  router: Router;
 
 
 
   constructor(private fb: FormBuilder) {
     console.log('AppComponent::constructor');
-    this.createForm()
+    this.createForm();
    }
 
   ngOnInit(): void {
@@ -48,6 +50,11 @@ export class LoginComponent implements OnInit {
     } else {
       alert('error');
     }
+  }
+
+  login(){
+    console.log('ejecuto');
+    //this.router.navigate(['/home']);
   }
 }
 /* aplicarValidacion(): boolean {
