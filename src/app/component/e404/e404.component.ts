@@ -16,6 +16,6 @@ routes: Router;
   }
 
  onclick(): void{
-    this.routes.navigate([':/home']);
+    this.routes.navigate(['home']);
   }
 }

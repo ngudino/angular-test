@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     console.log('ejecuto');
-    //this.router.navigate(['/home']);
+    this.router.navigate(['home']);
   }
 }
 /* aplicarValidacion(): boolean {
