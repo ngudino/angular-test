@@ -1,4 +1,4 @@
-import { validarInput } from './app.validator';
+import { validarInput } from '@oauth/component/login/app.validator';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';

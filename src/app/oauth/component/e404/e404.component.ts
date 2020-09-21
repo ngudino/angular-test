@@ -16,6 +16,9 @@ routes: Router;
   }
 
  onclick(): void{
-    this.routes.navigate(['home']);
+   console.log(this.routes);
+   /*  this.routes.navigate(['home']);
+    this.routes.navigate('home')
+ */
   }
 }

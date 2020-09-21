@@ -1,0 +1,10 @@
+.nav{
+  flex-wrap: wrap;
+ background: #ff6752;
+ text-decoration-line: none;
+ text-overflow: inherit;
+
+}
+ .nav a>{
+text-align: left;
+ }
