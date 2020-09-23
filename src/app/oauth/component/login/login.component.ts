@@ -1,7 +1,10 @@
 import { validarInput } from '@oauth/component/login/app.validator';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ServicioLoginService } from '@oauth/services/servicio-login.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { user } from '@app/oauth/models/user';
+import { first } from 'rxjs/operators';
 
 
 @Component({
@@ -12,51 +15,64 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginform: FormGroup;
   router: Router;
+  user: user = {
+    email: 'eje@je.com',
+    password: '1234'
+  };
 
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private auth: ServicioLoginService) {
     console.log('AppComponent::constructor');
     this.createForm();
-   }
+  }
 
   ngOnInit(): void {
-    // this.initForm();
-    /* this.loginform = new FormGroup({
-      email: new FormControl(''),
-      password:  new FormControl(''),
-    }); */
+    // this.login(this.user);
 
   }
 
-    createForm(): void {
-      console.log('AppComponent::createForm');
-      this.loginform = this.fb.group({
-        email: ['', Validators.required],
-        password: ['', Validators.required]
-      }, {
-        validators: validarInput
-      });
+  createForm(): void {
+    console.log('AppComponent::createForm');
+    this.loginform = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    }, {
+      validators: validarInput
+    });
 
-      this.loginform.controls['email']
+    this.loginform.controls['email']
       .valueChanges.subscribe(data => {
         console.log(data);
       });
   }
 
   onSubmit(): void {
-    if(this.loginform.valid){
+    if (this.loginform.valid) {
       console.log(this.loginform.value);
     } else {
       alert('error');
     }
   }
 
-  login(){
+  /* login(user: user) {
+
     console.log('ejecuto');
-    this.router.navigate(['home']);
-  }
+
+    this.auth.login(user.email, user.password)
+      .pipe(first())
+      .subscribe(
+          data => {
+            console.log(data);
+          //this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          console.log(error);
+        });
+  } */
+  //this.router.navigate(['home']);
 }
+
 /* aplicarValidacion(): boolean {
   return this.form.hasError('no corresponde') && this.form.get('email').dirty && this.form.get('password').dirty;
 } */
