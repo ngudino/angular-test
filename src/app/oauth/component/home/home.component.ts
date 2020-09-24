@@ -1,4 +1,4 @@
-
+import { ServicioLoginService } from '@oauth/services/servicio-login.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(public authSrvc: ServicioLoginService) { }
     ngOnInit() {
 }
  onEvent($e){

@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+
 
 import {TabViewModule} from 'primeng/tabview';
 import {TabMenuModule} from 'primeng/tabmenu';
@@ -54,6 +55,7 @@ import { DocumentacionComponent } from './oauth/component/documentacion/document
     ButtonModule,
     InputTextModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
   ],
   providers: [],

@@ -1,9 +1,9 @@
 export interface user {
-  id?: any;
-  email: any;
-  firts_name?: any;
-  last_name?: any;
-  avatar?: any;
-  password: any;
+  id: number;
+  email: string;
+  firts_name: string;
+  last_name: string;
+  avatar: string;
+  password: string;
 
 }
