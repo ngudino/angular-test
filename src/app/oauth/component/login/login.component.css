@@ -228,3 +228,7 @@ justify-content: space-between;
   color: #015F91;
   text-decoration: none;
 }
+
+:host ::ng-deep .custom-spinner .p-progress-spinner-circle {
+  animation: custom-progress-spinner-dash 1.5s ease-in-out infinite, custom-progress-spinner-color 6s ease-in-out infinite;
+}

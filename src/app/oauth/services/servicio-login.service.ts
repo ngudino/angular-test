@@ -7,7 +7,7 @@ import { UserResponse } from '@oauth/models/userResponse';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { AbsoluteSourceSpan } from '@angular/compiler';
+
 
 const helper = new JwtHelperService();
 
@@ -35,12 +35,12 @@ private loggedIn = new BehaviorSubject<boolean>(false);
     return this.http.post<UserResponse>(`${environment.API_URL}`, usuario)
     .pipe(
       map((res) => {
-        console.log('respo->', res);
+        // console.log('respo->', res);
         // this.saveToken(res.token);
         this.loggedIn.next(true);
         return res;
       }),
-      catchError(( err: UserResponse) => this.handleError(err))
+     // catchError(( err: UserResponse) => this.handleError(err))
     );
   }
 
@@ -69,14 +69,7 @@ private loggedIn = new BehaviorSubject<boolean>(false);
   }
 
 
-  private handleError(err): Observable<never>{
-    let errorMessage = 'un error en el retorno de la data';
-    if(err) {
-      errorMessage = `Error: code ${err.message}`;
-    }
-    window.alert(errorMessage);
-    return throwError(errorMessage);
-  }
+
   //public get currentUserValue(): user {
     //return this.currentUserSubject.value;
 

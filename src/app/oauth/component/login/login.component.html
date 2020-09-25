@@ -1,3 +1,6 @@
+<p-blockUI [blocked]="blockedDocument">
+  <p-progressSpinner></p-progressSpinner>
+</p-blockUI>
 <div class="container">
   <div class="flex-container">
       <div id="izq" class="wave">
@@ -76,12 +79,13 @@
               <input placeholder="CONTRASEÑA" formControlName="password" type="password" class="input">
              </div>
              <div class="error" *ngIf="isValidField('password')">
-              <small id="username2-help" class="p-invalid">{{ getErrorMessage("password")}}</small>
+              <small id="password-help" class="p-invalid">{{ getErrorMessage("password") }}</small>
              </div>
              <div style="vertical-align: auto; align-items: center;">
-              <input id="boton-text" type="submit" onclick="login()" class="btn" value="INICIAR SESIÓN">
+              <input [disabled]=loginForm.invalid id="boton-text" type="submit" onclick="login()" class="btn" value="INICIAR SESIÓN">
              </div>
         </form>
+
       </div>
 
 

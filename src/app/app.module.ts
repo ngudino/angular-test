@@ -1,5 +1,6 @@
+import { InterceptorService } from '@oauth/services/interceptors/interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,8 +13,8 @@ import { AppComponent } from './app.component';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-
-
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { BlockUIModule} from 'primeng/blockui';
 import {TabViewModule} from 'primeng/tabview';
 import {TabMenuModule} from 'primeng/tabmenu';
 
@@ -56,9 +57,15 @@ import { DocumentacionComponent } from './oauth/component/documentacion/document
     InputTextModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    BlockUIModule,
+    ProgressSpinnerModule,
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
