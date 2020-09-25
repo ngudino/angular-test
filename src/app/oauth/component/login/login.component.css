@@ -96,14 +96,14 @@ flex-wrap: wrap;
 } */
 
 
-#div1 {
+/* #div1 {
   margin-top: inherit;
   width: 8px;
   height: 25px;
   background: #ff6752;
   display: inline-block;
 
-}
+} */
 
 #div2 {
 
@@ -111,6 +111,13 @@ flex-wrap: wrap;
 }
 
 .title{
+  border-style: none;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: solid;
+  border-color: #ff6752;
+  border-width: 10px;
   top: 277px;
 left: 840px;
 width: 149px;
@@ -121,20 +128,24 @@ letter-spacing: 0px;
 color: #4D4F5C;
 text-transform: uppercase;
 opacity: 1;
+border-left-style: solid #ff6752, ;
 
 }
 
 .btn{
-  top: 559px;
+  top: 600px;
 left: 932px;
 width: 239px;
 height: 75px;
 background: #4487FF 0% 0% no-repeat padding-box;
-box-shadow: 0px 3px 6px #2C1DAD29;
 border-radius: 38px;
 opacity: 1;
 justify-content: center;
 align-items: center;
+
+}
+:disabled{
+  background-color: #A4AFB7;
 }
 
 
@@ -231,4 +242,9 @@ justify-content: space-between;
 
 :host ::ng-deep .custom-spinner .p-progress-spinner-circle {
   animation: custom-progress-spinner-dash 1.5s ease-in-out infinite, custom-progress-spinner-color 6s ease-in-out infinite;
+}
+#contenedor-boton{
+   position: relative;
+  width: 100%;
+  max-width: 400px;
 }

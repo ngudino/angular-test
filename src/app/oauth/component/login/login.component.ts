@@ -68,14 +68,15 @@ export class LoginComponent implements OnInit {
 
   getErrorMessage(field: string): string {
     let message = '';
-    if (this.loginForm.get(field).errors.required) {
-      message = 'Ingrese datos válidos';
-    } else if (this.loginForm.get(field).hasError('pattern')) {
-      message = 'No es un Email válido';
-    } else if (this.loginForm.get(field).hasError('minLenght')) {
+    if (this.loginForm.get(field).hasError('minLenght')) {
       const minLenght = this.loginForm.get(field).errors?.minleght.requiredLenght;
       message = `Este campo debe tener al menos ${minLenght} caracteres`;
-    }
+    }if (this.loginForm.get(field).errors.required) {
+      message = 'Este campo no puede estar vacío';
+    } else if (this.loginForm.get(field).hasError('pattern')) {
+      message = 'No es un Email válido';
+    };
+
     return message;
   }
 

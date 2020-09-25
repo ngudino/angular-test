@@ -24,7 +24,7 @@
 
       </div >
 
-
+      <label style="position: bottom;" for="">email:eve.holt@reqres.in clave:cityslicka</label>
   </div>
  <!--  <section>
     <div class="login">
@@ -60,12 +60,12 @@
   </section> -->
 
    <section>
-     <label for="">email:eve.holt@reqres.in clave:cityslicka</label>
+  <!--    <label for="">email:eve.holt@reqres.in clave:cityslicka</label> -->
     <div class="login">
 
       <div>
           <div>
-          <div id="div1"></div> <label class="title">Bienvenido</label>
+          <!-- <div id="div1"> </div> --><label class="title">Bienvenido</label>
           </div>
       </div>
       <div style="display:flex; align-self: right; flex-direction: column; justify-content: space-around; justify-content: space-between">
@@ -80,12 +80,18 @@
              <div class ="contenedor-input">
               <input placeholder="CONTRASEÑA" formControlName="password" type="password" class="input">
              </div>
-             <div class="error" *ngIf="isValidField('password')">
-              <small id="password-help" class="p-invalid">{{ getErrorMessage("password") }}</small>
+             <div class="error" *ngIf="isValidField('password')" style="align-items:flex-end;">
+              <small style="text-align: centen;" id="password-help" class="p-invalid">{{ getErrorMessage("password") }}</small>
              </div>
-             <div style="vertical-align: auto; align-items: center;">
-              <input [disabled]=loginForm.invalid id="boton-text" type="submit" onclick="login()" class="btn" value="INICIAR SESIÓN">
-             </div>
+             <div class="contenedor-input" style="align-items:flex-end;">
+              <a id="forgot" [routerLink]="'/e404'">¿Olvidaste tu contraseña?</a>
+            </div>
+              <div id="contenedor-boton">
+                <input [disabled]=loginForm.invalid id="boton-text" type="submit" onclick="login()" class="btn" value="INICIAR SESIÓN">
+               </div>
+               <div>
+                <label id="registrar" for="registrar">AUN NO TENGO CUENTA</label> <a id="reg" [routerLink]="'/menu/home'">REGISTRARSE</a>
+               </div>
         </form>
 
       </div>
