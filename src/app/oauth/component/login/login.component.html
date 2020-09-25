@@ -91,13 +91,13 @@
                 <input [disabled]=loginForm.invalid id="boton-text" type="submit" onclick="onLogin()" class="btn" value="INICIAR SESIÓN">
                </div>
 
-               <div class="contenedor-input">
-              <a id="forgot" [routerLink]="'/e404'">¿Olvidaste tu contraseña?</a>
-              </div>
-              <span></span>
-               <div>
-                <label id="registrar" for="registrar">AUN NO TENGO CUENTA</label> <a id="reg" [routerLink]="'/menu/home'">REGISTRARSE</a>
-               </div>
+
+              <span> <div class="contenedor-input">
+                <a id="forgot" [routerLink]="'/e404'">¿Olvidaste tu contraseña?</a>
+                </div>
+
+              </span>
+
 
         </form>
 
@@ -105,6 +105,9 @@
 
 
   </div>
+  <div style="float: right;">
+    <label id="registrar" for="registrar">AUN NO TENGO CUENTA</label> <a id="reg" [routerLink]="'/menu/home'">REGISTRARSE</a>
+   </div>
   </section>
 
 
