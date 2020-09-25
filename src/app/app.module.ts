@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app.routing'; // ruta
 import { AppComponent } from './app.component';
+import {MessageService} from 'primeng/api';
 
 
 // primeng
@@ -17,6 +18,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { BlockUIModule} from 'primeng/blockui';
 import {TabViewModule} from 'primeng/tabview';
 import {TabMenuModule} from 'primeng/tabmenu';
+import {ToastModule} from 'primeng/toast';
 
 
 
@@ -59,13 +61,16 @@ import { DocumentacionComponent } from './oauth/component/documentacion/document
     HttpClientModule,
     BlockUIModule,
     ProgressSpinnerModule,
+    ToastModule,
   ],
   providers: [
     {
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorService,
     multi: true
-  }],
+  },
+  MessageService,
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

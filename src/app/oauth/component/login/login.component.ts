@@ -1,12 +1,10 @@
-import { catchError } from 'rxjs/operators';
+import { UserResponse } from '@oauth/models/userResponse';
 import { Component, OnInit } from '@angular/core';
 import { ServicioLoginService } from '@oauth/services/servicio-login.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-
-
-
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -27,9 +25,10 @@ export class LoginComponent implements OnInit {
   // user: user;
 
 
-  constructor(private fb: FormBuilder,
-    private auth: ServicioLoginService,
-    private router: Router) { }
+  constructor( private fb: FormBuilder,
+               private auth: ServicioLoginService,
+               private router: Router,
+               private messageService: MessageService ) { }
 
   ngOnInit(): void {
     // this.login(this.user);
@@ -52,20 +51,22 @@ export class LoginComponent implements OnInit {
     const formValue = this.loginForm.value;
     this.subscription.add(
       this.auth.loging(formValue).subscribe((res) => {
-        window.alert('res desde componente', res);
 
-          this.router.navigate(['/menu/home']);
+        this.router.navigate(['/menu/home']);
 
         },
         (errorMessage) => {
-          window.alert('ERES LO MAXIMO CHAPULIN ' + errorMessage);
+          let error = errorMessage;
+          //window.alert('ERES LO MAXIMO CHAPULIN ' + errorMessage);
+          console.log(error);
+          this.alerta(error);
         }
 
     )
     );
   }
 
-  getErrorMessage(field: string) {
+  getErrorMessage(field: string): string {
     let message = '';
     if (this.loginForm.get(field).errors.required) {
       message = 'Ingrese datos válidos';
@@ -85,15 +86,17 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  blockDocument() {
+  blockDocument(): void {
     this.blockedDocument = true;
     setTimeout(() => {
         this.blockedDocument = false;
-    }, 3000);
+    }, 6000);
 }
-  onload() {
 
-  }
+alerta(error){
+  this.messageService.clear();
+  this.messageService.add({severity:'error', summary:'El usuario o contraseña no es valido', detail: `${error}`});
+}
 }
 
 
