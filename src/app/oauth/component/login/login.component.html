@@ -83,15 +83,22 @@
              <div class="error" *ngIf="isValidField('password')" style="align-items:flex-end;">
               <small style="text-align: centen;" id="password-help" class="p-invalid">{{ getErrorMessage("password") }}</small>
              </div>
-             <div class="contenedor-input" style="align-items:flex-end;">
+            <!--  <div class="contenedor-input" style="align-items:flex-end;">
               <a id="forgot" [routerLink]="'/e404'">¿Olvidaste tu contraseña?</a>
-            </div>
+            </div> -->
+
               <div id="contenedor-boton">
-                <input [disabled]=loginForm.invalid id="boton-text" type="submit" onclick="login()" class="btn" value="INICIAR SESIÓN">
+                <input [disabled]=loginForm.invalid id="boton-text" type="submit" onclick="onLogin()" class="btn" value="INICIAR SESIÓN">
                </div>
+
+               <div class="contenedor-input">
+              <a id="forgot" [routerLink]="'/e404'">¿Olvidaste tu contraseña?</a>
+              </div>
+              <span></span>
                <div>
                 <label id="registrar" for="registrar">AUN NO TENGO CUENTA</label> <a id="reg" [routerLink]="'/menu/home'">REGISTRARSE</a>
                </div>
+
         </form>
 
       </div>
